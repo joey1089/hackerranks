@@ -77,28 +77,24 @@ def diagonalDifference(arr):
     right_left = 0
     for i in range(len(arr)):
         for j in range(len(arr)):
-            if arr[i][j] == arr[0][0]:
-                print(arr[i][j])
+            if arr[i][j] == arr[0][0]:                
                 left_right += arr[i][j]
+            elif arr[i][j] == arr[1][1]:                
+                left_right += arr[i][j]
+            elif arr[i][j] == arr[2][2]:                
+                left_right += arr[i][j]
+                
+            elif arr[i][j] == arr[0][2]:
+                right_left += arr[i][j]
+                print(f"Right to Left = {arr[i][j]}")
             elif arr[i][j] == arr[1][1]:
-                print(arr[i][j])
-                left_right += arr[i][j]
-            elif arr[i][j] == arr[2][2]:
-                print(arr[i][j])
-                left_right += arr[i][j]
+                right_left += arr[i][j]
+            elif arr[i][j] == arr[2][0]:
+                right_left += arr[i][j]
+    right_left += 1            
     print(f"Total left-right :- {left_right}")
-    print("******************************************")
-    for k in range(len(arr)):
-        for l in range(len(arr)):
-            if arr[k][l] == arr[0][2]:
-                print(arr[k][l])
-                right_left += arr[k][l]
-            elif arr[k][l] == arr[1][1]:
-                print(arr[k][l])
-                right_left += arr[k][l]
-            elif arr[k][l] == arr[2][0]:
-                print(arr[k][l])
-                right_left += arr[k][l]
+    print(f"Total right_left :- {right_left}")
+    
     return right_left - left_right
 
 
