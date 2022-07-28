@@ -52,6 +52,44 @@
 
 # Sum across the secondary diagonal: 4 + 5 + 10 = 19
 # Difference: |4 - 19| = 15
-
+#My Logical plan 
 # 1st diagonal  left - right (0,0),(1,1),(2,2)
 # 2nd diagonal  right - left (0,2),(1,1),(2,0)
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'diagonalDifference' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts 2D_INTEGER_ARRAY arr as parameter.
+#
+
+def diagonalDifference(arr):
+    # Write your code here
+    print(len(arr))
+    for i,j in zip(arr):
+        print(arr[i][j])
+    return arr[i][j]
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    arr = []
+
+    for _ in range(n):
+        arr.append(list(map(int, input().rstrip().split())))
+
+    result = diagonalDifference(arr)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
