@@ -73,23 +73,39 @@ import sys
 
 def diagonalDifference(arr):
     # Write your code here
-    print(len(arr))
-    for i,j in zip(arr):
-        print(arr[i][j])
-    return arr[i][j]
+    left_right = 0
+    right_left = 0
+    for i in range(len(arr)):
+        for j in range(len(arr)):
+            if arr[i][j] == arr[0][0]:
+                print(arr[i][j])
+                left_right += arr[i][j]
+            elif arr[i][j] == arr[1][1]:
+                print(arr[i][j])
+                left_right += arr[i][j]
+            elif arr[i][j] == arr[2][2]:
+                print(arr[i][j])
+                left_right += arr[i][j]
+    print(f"Total left-right :- {left_right}")
+    print("******************************************")
+    for k in range(len(arr)):
+        for l in range(len(arr)):
+            if arr[k][l] == arr[0][2]:
+                print(arr[k][l])
+                right_left += arr[k][l]
+            elif arr[k][l] == arr[1][1]:
+                print(arr[k][l])
+                right_left += arr[k][l]
+            elif arr[k][l] == arr[2][0]:
+                print(arr[k][l])
+                right_left += arr[k][l]
+    return right_left - left_right
+
 
 if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
-
-    n = int(input().strip())
-
-    arr = []
-
-    for _ in range(n):
-        arr.append(list(map(int, input().rstrip().split())))
-
+    n = 3
+    arr = [[11, 2, 4] ,[4, 5, 6], [10, 8, -12]]
     result = diagonalDifference(arr)
+    print(result)
 
-    fptr.write(str(result) + '\n')
-
-    fptr.close()
+    
