@@ -73,31 +73,48 @@ import sys
 
 def diagonalDifference(arr):
     # Write your code here
-    left_right = 0
-    right_left = 0
-    for i in range(len(arr)):
-        for j in range(len(arr)):
-            if arr[i][j] == arr[0][0]:                
-                left_right += arr[i][j]
-            elif arr[i][j] == arr[1][1]:                
-                left_right += arr[i][j]
-            elif arr[i][j] == arr[2][2]:                
-                left_right += arr[i][j]
+    # left_right = 0
+    # right_left = 0
+    # for i in range(len(arr)):
+    #     for j in range(len(arr)):
+    #         if arr[i][j] == arr[0][0]:                
+    #             left_right += arr[i][j]
+    #         elif arr[i][j] == arr[1][1]:                
+    #             left_right += arr[i][j]
+    #         elif arr[i][j] == arr[2][2]:                
+    #             left_right += arr[i][j]
                 
-            elif arr[i][j] == arr[0][2]:
-                right_left += arr[i][j]
-                print(f"Right to Left = {arr[i][j]}")
-            elif arr[i][j] == arr[1][1]:
-                right_left += arr[i][j]
-            elif arr[i][j] == arr[2][0]:
-                right_left += arr[i][j]
-    right_left += 1            
-    print(f"Total left-right :- {left_right}")
-    print(f"Total right_left :- {right_left}")
+    #         elif arr[i][j] == arr[0][2]:
+    #             right_left += arr[i][j]
+    #             print(f"Right to Left = {arr[i][j]}")
+    #         elif arr[i][j] == arr[1][1]:
+    #             right_left += arr[i][j]
+    #         elif arr[i][j] == arr[2][0]:
+    #             right_left += arr[i][j]
+    # right_left += 1            
+    # print(f"Total left-right :- {left_right}")
+    # print(f"Total right_left :- {right_left}")
     
-    return right_left - left_right
+    # return right_left - left_right
+    
+    #solution from differ site - work on own sol
+    #https://programs.programmingoneonone.com/2021/03/hackerrank-diagonal-difference-solution.html
+    
+    temp = 0
+    emp = 0
+    for i in range(0,len(arr)):
+        temp = temp + arr[i][i]
+        print(temp)
+    print("\n")
+    for j in range(0,len(arr)):
+        emp = emp + arr[j][len(arr)-1-j]
+        print(emp)
+    print(f"\n {temp} - {emp} ")
+    return abs(temp - emp)
 
 
+
+os.system('clear')
 if __name__ == '__main__':
     n = 3
     arr = [[11, 2, 4] ,[4, 5, 6], [10, 8, -12]]
